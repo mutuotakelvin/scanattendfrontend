@@ -19,7 +19,7 @@ const index = () => {
         style={{width:wp(100), height:hp(105)}}
         start={{ x: 0.5, y: 0 }}
         end={{ x: 0.5, y: 0.8 }}
-        className='flex justify-end pb-12'
+        className='flex justify-end pb-32'
       >
         <View className='flex items-center'>
           <Animated.View entering={FadeInDown.delay(100).springify()} className='flex flex-row justify-center items-center'>
