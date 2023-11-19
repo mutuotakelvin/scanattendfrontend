@@ -1,31 +1,32 @@
-import { StyleSheet } from 'react-native';
+import {StyleSheet, View, Text, Pressable, Dimensions } from 'react-native'
+import React from 'react'
+import { useRouter } from 'expo-router'
+import Greatings from '../../components/Greatings'
+import ExamList from '../../components/ExamList'
+import MyList from '../../components/ExamList'
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
 
-export default function TabOneScreen() {
+
+const index = () => {
+  const router = useRouter()
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+    <View>
+      <View className='mt-6 h-[20%]'>
+        <Greatings />
+        <View className='flex flex-row justify-between items-center m-1 p-2'>
+          <Text className='text-xl font-medium'>
+            Upcoming exams
+          </Text>
+          <Pressable onPress={() => router.push('/(modals)/addExam')}>
+            <Text>Create exam session</Text>
+          </Pressable>
+        </View>
+      </View>
+      <View className='m-1 h-[72%] mt-6 mb-4'>
+        <ExamList />
+      </View>
     </View>
-  );
+  )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
-  },
-});
+export default index
