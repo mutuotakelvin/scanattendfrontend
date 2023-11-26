@@ -15,6 +15,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "2",
@@ -30,6 +92,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "3",
@@ -45,6 +169,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "4",
@@ -60,6 +246,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "5",
@@ -75,6 +323,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "6",
@@ -90,6 +400,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "7",
@@ -105,6 +477,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "8",
@@ -120,6 +554,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "9",
@@ -135,6 +631,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     },
     {
         "id": "10",
@@ -150,6 +708,68 @@ const exams = [
         "exam_creator": "Mr. Rapahel",
         "department": "Computing and Information Technology",
         "school": "School of Engineering and Technology",
+        "students":[
+            {
+                "id": "1",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "2",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:00:00",
+            },
+            {
+                "id": "3",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:04:00",
+            },
+            {
+                "id": "4",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:05:00",
+            },
+            {
+                "id": "5",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:06:00",
+            },
+            {
+                "id": "6",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:07:00",
+            },
+            {
+                "id": "7",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:08:00",
+            },
+            {
+                "id": "8",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:15:00",
+            },
+            {
+                "id": "9",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:16:00",
+            },
+            {
+                "id": "10",
+                "student_id": "123456",
+                "student_name": "John Doe",
+                "attendance_time": "12:17:00",
+            }
+        ]
     }
 
 ]
