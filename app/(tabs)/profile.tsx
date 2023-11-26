@@ -1,10 +1,13 @@
-import { View, Text, StyleSheet, Alert } from 'react-native'
+import { View, Text, StyleSheet, Alert, TouchableOpacity } from 'react-native'
 import React,{useState} from 'react'
 import ProfileForm from '../../components/ProfileForm'
 import ProfilePicture from '../../components/ProfilePicture'
+import {useSession, } from '../../ctx';
+
 
 const profile = () => {
   const [profilePicture, setProfilePicture] = useState(null);
+  const { signOut} = useSession();
 
   const handlePictureSelect = (uri:any) => {
     setProfilePicture(uri);
@@ -20,6 +23,9 @@ const profile = () => {
     <View style={styles.container}>
       <ProfilePicture source={profilePicture} onSelect={handlePictureSelect} />
       <ProfileForm onSubmit={handleProfileUpdate} />
+      <TouchableOpacity onPress={() =>signOut()}>
+        <Text>Sign Out</Text>
+      </TouchableOpacity>
     </View>
   )
 }
