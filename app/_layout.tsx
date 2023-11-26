@@ -1,9 +1,10 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
-import { SplashScreen, Stack } from 'expo-router';
+import { Redirect, SplashScreen, Stack } from 'expo-router';
 import { useEffect } from 'react';
-import { useColorScheme } from 'react-native';
+import { Text, useColorScheme } from 'react-native';
+import { SessionProvider, useSession } from '../ctx';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -39,11 +40,16 @@ export default function RootLayout() {
     return null;
   }
 
-  return <RootLayoutNav />;
+  return (
+    <SessionProvider>
+      <RootLayoutNav />
+    </SessionProvider>
+  )
 }
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
+  
 
   return (
     <ThemeProvider value={DefaultTheme}>
@@ -67,6 +73,33 @@ function RootLayoutNav() {
           name="exam/attend" 
           options={{ 
             title: 'Attend Exam',
+           }} 
+        />
+        <Stack.Screen 
+          name="sign-up" 
+          options={{ 
+            title: '',
+            headerShown: false,
+           }} 
+        />
+        <Stack.Screen 
+          name="sign-in" 
+          options={{ 
+            title: '',
+            headerShown: false,
+           }} 
+        />
+        <Stack.Screen 
+          name="select-account" 
+          options={{ 
+            title: 'Back',
+           }} 
+        />
+        <Stack.Screen 
+          name="complete-profile" 
+          options={{ 
+            title: '',
+            headerShown: false,
            }} 
         />
       </Stack>
