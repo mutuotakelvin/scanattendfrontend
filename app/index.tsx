@@ -5,11 +5,16 @@ import { StatusBar } from 'expo-status-bar';
 import { LinearGradient } from 'expo-linear-gradient';
 import Animated,{FadeIn, FadeInDown, FadeOut} from 'react-native-reanimated';
 import { useRouter } from 'expo-router';
+import useAccountStore from '../store/AccountStore'
 
 
 
 const index = () => {
   const router = useRouter()
+  const {login}: any = useAccountStore()
+  const handleSelectAccount = () => {
+    router.push('/select-account')
+  }
   return (
     <View className='flex-1 justify-center items-center'>
       <StatusBar style="light" />
@@ -30,11 +35,11 @@ const index = () => {
         </View>
         <Animated.View entering={FadeInDown.delay(300).springify()}>
           <TouchableOpacity
-            onPress={() => router.push('/(tabs)/') }
+            onPress={() => router.push('/select-account') }
             style={{height:hp(7),width:wp(80)}}
             className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
           >
-            <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Get Started</Text>
+            <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Login</Text>
           </TouchableOpacity>
         </Animated.View>
       </LinearGradient>
