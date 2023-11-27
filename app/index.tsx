@@ -11,8 +11,13 @@ import useAccountStore from '../store/AccountStore'
 
 const index = () => {
   const router = useRouter()
-  const {login}: any = useAccountStore()
-  const handleSelectAccount = () => {
+  const {login, updateLogin}: any = useAccountStore()
+  const handleSingupSelectAccount = () => {
+    updateLogin(false)
+    router.push('/select-account')
+  }
+  const handleLoginSelectAccount = () => {
+    updateLogin(true)
     router.push('/select-account')
   }
   return (
@@ -33,14 +38,23 @@ const index = () => {
           </Animated.View>
         <Animated.Text entering={FadeInDown.delay(150).damping(4)} style={{fontSize:hp(2)}} className='text-white text-xl font-medium'>Attendance made easy</Animated.Text>
         </View>
-        <Animated.View entering={FadeInDown.delay(300).springify()}>
-          <TouchableOpacity
-            onPress={() => router.push('/select-account') }
-            style={{height:hp(7),width:wp(80)}}
-            className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
-          >
-            <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Login</Text>
-          </TouchableOpacity>
+        <Animated.View entering={FadeInDown.delay(300).springify()} className="w-full">
+          <View className='flex flex-row gap-5 justify-center items-center mx-auto'>
+            <TouchableOpacity
+              onPress={() => handleSingupSelectAccount() }
+              style={{height:hp(7),width:wp(20)}}
+              className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
+            >
+              <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Signup</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => handleLoginSelectAccount() }
+              style={{height:hp(7),width:wp(20)}}
+              className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
+            >
+              <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Login</Text>
+            </TouchableOpacity>
+          </View>
         </Animated.View>
       </LinearGradient>
     </View>
