@@ -3,13 +3,14 @@ import React, { useState } from 'react'
 import { useRouter } from 'expo-router';
 import {useSession, } from '../ctx';
 import useAccountStore from '../store/AccountStore';
-
+import useUserStore from '../store/UserStore';
 
 const signin = () => {
     const {login, account}:any = useAccountStore()
     const router = useRouter()
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
+    const {user}:any = useUserStore()
 
     const { session, isLoading, signIn} = useSession();
 
@@ -24,7 +25,12 @@ const signin = () => {
             console.log(res)
         }
         )
-        router.push('/(tabs)/')
+        if(user.name == null || user.name == undefined || user.name == ''){
+          router.push('/complete-profile')
+        }
+        else{
+          router.push('/(tabs)')
+        }
       };
     
       return (
@@ -32,7 +38,6 @@ const signin = () => {
           <Text className='text-2xl pb-'>Welcome To ScanAttend</Text>
           <View className='flex flex-row items-center gap-1'>
             <Text>Don't have an account? </Text>
-            <Text>{account}</Text>
             <TouchableOpacity onPress={() => router.push('/select-account')}>
               <Text>Create a new account</Text>
             </TouchableOpacity>
