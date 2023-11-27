@@ -1,6 +1,7 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Link, Redirect, Tabs } from 'expo-router';
 import { Pressable, Text, useColorScheme } from 'react-native';
+import useAccountStore from '../../store/AccountStore';
 
 import Colors from '../../constants/Colors';
 import { AntDesign, Ionicons, MaterialCommunityIcons} from '@expo/vector-icons';
@@ -19,6 +20,7 @@ function TabBarIcon(props: {
 export default function TabLayout() {
   const colorScheme = useColorScheme();
   const { session, isLoading} = useSession();
+  const {account}:any = useAccountStore()
 
   if (isLoading) {
     return <Text>Loading...</Text>;
@@ -57,13 +59,26 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <Ionicons name="person-circle-outline" color={color} size={25}/>,
         }}
       />
-      <Tabs.Screen
-        name="reports"
-        options={{
-          title: 'Reports',
-          tabBarIcon: ({ color }) => <AntDesign name="piechart" color={color} size={20}/>,
-        }}
-      />
+      {
+        account == 'Lecturer'?  (
+          <Tabs.Screen
+            name="reports"
+            options={{
+              title: 'Reports',
+              tabBarIcon: ({ color }) => <AntDesign name="piechart" color={color} size={20}/>,
+            }}
+          />
+        ) : (
+          <Tabs.Screen
+            name="reports"
+            options={{
+              title: 'Reports',
+              href:null,
+              tabBarIcon: ({ color }) => <AntDesign name="piechart" color={color} size={20}/>,
+            }}
+          />
+        )
+      }
     </Tabs>
   );
 }
