@@ -3,9 +3,11 @@ import { useStorageState } from './useStorageState';
 import {  useRouter } from 'expo-router';
 import useUserStores from './store/UserStore';
 import useAccountStore from './store/AccountStore';
+import { Alert } from 'react-native';
 
 interface AuthContextProps {
   signIn: (loginData: { username: string; password: string }) => Promise<void>;
+  signUp: (loginData: { username: string; password: string }) => Promise<void>;
   signOut: () => void;
   session?: string | null;
   isLoading: boolean;
@@ -31,6 +33,45 @@ export function SessionProvider(props: React.PropsWithChildren) {
   const {account,} :any = useAccountStore()
   const userData = typeof user === 'string' ? JSON.parse(user) : user;
 
+  const signUp = async(signupData:{username:string, password:string}) => {
+    try {
+      if(account == 'Student'){
+        const { username, password } = signupData;
+        const res = await fetch('http://10.0.2.2:8000/api/auth/student/register/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+        if (!res.ok) {
+          throw new Error('Authentication failed');
+        }
+    
+        const data = await res.json();
+        router.push('/sign-in')
+      } else if(account == 'Lecturer'){
+        const { username, password } = signupData;
+        const res = await fetch('http://10.0.2.2:8000/api/auth/teacher/register/', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ username, password }),
+        });
+        if (!res.ok) {
+          throw new Error('Authentication failed');
+        }
+        router.push('/sign-in')
+        const data = await res.json();
+        console.log(data)
+      }
+  
+    } catch (err) {
+      console.error(err);
+    }
+  }
+
   const signIn = async (loginData: { username: string; password: string }) => {
     try {
       if(account == 'Student'){
@@ -47,6 +88,7 @@ export function SessionProvider(props: React.PropsWithChildren) {
         }
     
         const data = await res.json();
+        console.log(data)
         setUser(JSON.stringify(data.user))
         // JSON-encode values before storing
         setSession(JSON.stringify(data.access));
@@ -67,12 +109,15 @@ export function SessionProvider(props: React.PropsWithChildren) {
         }
     
         const data = await res.json();
+        console.log(data)
         setUser(JSON.stringify(data.user))
         // JSON-encode values before storing
         setSession(JSON.stringify(data.access));
-        if(userData.username == null || userData.username == ''){
-          router.push('/complete-profile')
-        }
+        // if(userData.name == null || userData.name == ''){
+        //   router.push('/complete-profile')
+        // }else {
+        //   router.push('/(tabs)/')
+        // }
       }
   
     } catch (err) {
@@ -91,6 +136,7 @@ export function SessionProvider(props: React.PropsWithChildren) {
   const authContextValue: AuthContextProps = {
     signIn,
     signOut,
+    signUp,
     session,
     isLoading,
   };
