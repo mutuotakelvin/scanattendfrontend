@@ -8,11 +8,11 @@ const ProfileForm = ({ onSubmit }:any) => {
   const {login, account}:any = useAccountStore()
 
   const userData = typeof user === 'string' ? JSON.parse(user) : user;
-
+  const userId = account == 'Student' ? userData.student_id : userData.teacher_id
   const [fullName, setFullName] = useState(userData.name);
   const [department, setDepartment] = useState(userData.department);
   const [school, setSchool] = useState(userData.school);
-  const [regNumber, setRegNumber] = useState(userData.student_id);
+  const [regNumber, setRegNumber] = useState(userId);
   const [number, setNumber] = useState(userData.phone);
 
 
@@ -43,7 +43,6 @@ const ProfileForm = ({ onSubmit }:any) => {
 
   return (
     <View style={styles.container}>
-      <Text>{userData.name}</Text>
       <TextInput
         placeholder="Full Name"
         value={fullName}
