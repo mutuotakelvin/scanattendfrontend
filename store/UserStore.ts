@@ -46,7 +46,7 @@ const useUserStore = create((set) => ({
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                student_id:regNumber,
+                teacher_id:regNumber,
                 name:fullName,
                 phone:number,
                 school:school,
