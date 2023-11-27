@@ -9,15 +9,18 @@ import useAccountStore from '../store/AccountStore';
 
 const completeProfile = () => {
   const router = useRouter()
-  const [fullName, setFullName] = useState('')
-  const [school, setSchool] = useState('')
-  const [department, setDepartment] = useState('')
-  const [regNumber, setRegNumber] = useState('')
-  const [number, setNumber] = useState('')
-  // const {user} = useSession();
   const {user, setUser, clearUser, updateLecturerDetails,updateStudentDetails}:any = useUserStores()
   const {login, account}:any = useAccountStore()
+
   const userData = typeof user === 'string' ? JSON.parse(user) : user;
+  const userId = account == 'Student' ? userData.student_id : userData.teacher_id
+
+  const [fullName, setFullName] = useState(userData.name)
+  const [school, setSchool] = useState(userData.school)
+  const [department, setDepartment] = useState(userData.department)
+  const [regNumber, setRegNumber] = useState(userId)
+  const [number, setNumber] = useState(userData.phone)
+  // const {user} = useSession();
   
   const handleCompleteProfile = () => {
     if(account == 'Student'){
