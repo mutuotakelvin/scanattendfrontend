@@ -13,7 +13,7 @@ const useUserStore = create((set) => ({
         }
     }),
     updateStudentDetails: async( userData:any) => {
-        const {id,department,fullName,regNumber,school,number} = userData
+        const {id,department,fullName,regNumber,school,number,course,email} = userData
         
         const response = await fetch(`http://10.0.2.2:8000/api/student/${id}/`, {
             method: 'PATCH',
@@ -26,6 +26,8 @@ const useUserStore = create((set) => ({
                 phone:number,
                 school:school,
                 department:department,
+                course:course,
+                email:email
             })
         })
         const data = await response.json()
@@ -38,7 +40,7 @@ const useUserStore = create((set) => ({
         }
     },
     updateLecturerDetails: async( userData:any) => {
-        const {id,department,fullName,regNumber,school,number} = userData
+        const {id,department,fullName,regNumber,school,number, course, email} = userData
         
         const response = await fetch(`http://10.0.2.2:8000/api/teacher/${id}/`, {
             method: 'PATCH',
@@ -51,6 +53,8 @@ const useUserStore = create((set) => ({
                 phone:number,
                 school:school,
                 department:department,
+                course:course,
+                email:email
             })
         })
         const data = await response.json()
