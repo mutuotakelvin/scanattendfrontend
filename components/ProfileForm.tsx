@@ -3,7 +3,7 @@ import { View, TextInput, Button, StyleSheet,Text } from 'react-native';
 import useUserStores from '../store/UserStore';
 import useAccountStore from '../store/AccountStore';
 
-const ProfileForm = ({ onSubmit }:any) => {
+const ProfileForm = ({ onSubmit, data }:any) => {
   const {user, setUser, clearUser, updateStudentDetails,updateLecturerDetails}:any = useUserStores()
   const {login, account}:any = useAccountStore()
 
@@ -14,6 +14,8 @@ const ProfileForm = ({ onSubmit }:any) => {
   const [school, setSchool] = useState(userData.school);
   const [regNumber, setRegNumber] = useState(userId);
   const [number, setNumber] = useState(userData.phone);
+  const [course, setCourse] = useState(userData.course);
+  const [email, setEmail] = useState(userData.email);
 
 
   const handleSubmit = () => {
@@ -24,7 +26,9 @@ const ProfileForm = ({ onSubmit }:any) => {
         school,
         department,
         regNumber,
-        number
+        number,
+        course,
+        email
       };
       updateStudentDetails(profileData)
     }
@@ -35,7 +39,9 @@ const ProfileForm = ({ onSubmit }:any) => {
         school,
         department,
         regNumber,
-        number
+        number,
+        course,
+        email
       };
       updateLecturerDetails(profileData)
     }
@@ -71,6 +77,18 @@ const ProfileForm = ({ onSubmit }:any) => {
         placeholder="Phone Number"
         value={number}
         onChangeText={(text) => setNumber(text)}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Course"
+        value={course}
+        onChangeText={(text) => setCourse(text)}
+        style={styles.input}
+      />
+      <TextInput
+        placeholder="Email"
+        value={email}
+        onChangeText={(text) => setEmail(text)}
         style={styles.input}
       />
       <Button title="Update Profile" onPress={handleSubmit} />
