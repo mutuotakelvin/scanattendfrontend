@@ -20,6 +20,8 @@ const completeProfile = () => {
   const [department, setDepartment] = useState(userData.department)
   const [regNumber, setRegNumber] = useState(userId)
   const [number, setNumber] = useState(userData.phone)
+  const [course, setCourse] = useState(userData.course)
+  const [email, setEmail] = useState(userData.email)
   // const {user} = useSession();
   
   const handleCompleteProfile = () => {
@@ -30,9 +32,12 @@ const completeProfile = () => {
         school,
         department,
         regNumber,
-        number
+        number,
+        course,
+        email
       };
       updateStudentDetails(profileData)
+      router.push('/(tabs)/')
     }
     else if(account == 'Lecturer'){
       const profileData = {
@@ -41,11 +46,14 @@ const completeProfile = () => {
         school,
         department,
         regNumber,
-        number
+        number,
+        course,
+        email
       };
       updateLecturerDetails(profileData)
+      console.log('Profile Data', profileData)
+      router.push('/(tabs)/')
     }
-    router.push('/(tabs)/')
   }
   return (
     <View className='flex flex-col justify-center items-center my-auto'>
@@ -83,13 +91,30 @@ const completeProfile = () => {
           value={regNumber}
           onChangeText={(text) => setRegNumber(text)}
           />
+        <TextInput
+          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          placeholder="Course" 
+          value={course}
+          onChangeText={(text) => setCourse(text)}
+          />
+        <TextInput
+          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          placeholder="Email" 
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          />
         <View className='flex flex-row items-center gap-6'>
           <TouchableOpacity onPressIn={() => router.back()} className='bg-black rounded-lg'>
             <Text className='text-white p-1 px-8 text-lg'>Back</Text>
           </TouchableOpacity>
           <TouchableOpacity onPressIn={() => handleCompleteProfile()} className='bg-blue-500 rounded-lg'>
-            <Text className='text-white p-1 px-8 text-lg'>Complete</Text>
+            <Text className='text-white p-1 px-8 text-lg'>
+              Complete
+            </Text>
           </TouchableOpacity>
+          {/* <TouchableOpacity onPressIn={() => router.push('/(tabs)/')} className='bg-black rounded-lg'>
+            <Text className='text-white p-1 px-8 text-lg'>Continue</Text>
+          </TouchableOpacity> */}
         </View>
       </View>
     </View>
