@@ -14,7 +14,7 @@ const signin = () => {
 
     const { session, isLoading, signIn} = useSession();
 
-
+    const userData = typeof user === 'string' ? JSON.parse(user) : user;
     const handleSignIn = () => {
         // Implement your sign-in logic here
         const loginData = {
@@ -23,14 +23,14 @@ const signin = () => {
         };
         signIn(loginData).then((res) => {
             console.log(res)
+            if(userData.name == null || userData.name == undefined || userData.name == ''){
+              router.push('/complete-profile')
+            }
+            else{
+              router.push('/(tabs)/')
+            }
         }
         )
-        if(user.name == null || user.name == undefined || user.name == ''){
-          router.push('/complete-profile')
-        }
-        else{
-          router.push('/(tabs)')
-        }
       };
     
       return (
