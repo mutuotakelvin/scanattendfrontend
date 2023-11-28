@@ -1,12 +1,13 @@
 import { View, Text, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocalSearchParams, useRouter } from 'expo-router'
-import exams from '../../constants/exams'
 import { Fontisto, Ionicons,FontAwesome, Octicons,FontAwesome5 } from '@expo/vector-icons'
 import { ScrollView } from 'react-native-gesture-handler'
+import useExamStore from '../../store/ExamStore'
 
 const  page = () => {
   const {id} = useLocalSearchParams()
+  const [data, setData] = useState([])
   const router = useRouter()
   let exam_instructions = [
     "No electronic devices, including mobile phones, are allowed during the exam.",
@@ -14,9 +15,22 @@ const  page = () => {
     "No books, notes, or papers are allowed during the exam.",
     "Follow the exam proctor's instructions throughout the duration of the exam."
   ]
+  const fetchData = async () => {
+    try{
+      const res = await fetch('http://10.0.2.2:8000/api/exam/')
+      const data = await res.json()
 
-  const exam = exams.find((exam) => exam.id == id)
-  console.log(exam)
+      setData(data.results)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    fetchData()
+  }, [])
+  const {exams}:any = useExamStore()
+  const exam :any = data.find((exam:any) => exam.id == id)
+  console.log('exams', exam)
   return (
     <ScrollView className='mb-2'>
       <View className='flex flex-row justify-between items-start m-1 mt-6 px-2'>
