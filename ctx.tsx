@@ -46,10 +46,11 @@ export function SessionProvider(props: React.PropsWithChildren) {
         });
         if (!res.ok) {
           throw new Error('Authentication failed');
+        }else{
+          const data = await res.json();
+          router.push('/sign-in')
         }
     
-        const data = await res.json();
-        router.push('/sign-in')
       } else if(account == 'Lecturer'){
         const { username, password } = signupData;
         const res = await fetch('http://10.0.2.2:8000/api/auth/teacher/register/', {
@@ -62,9 +63,12 @@ export function SessionProvider(props: React.PropsWithChildren) {
         if (!res.ok) {
           throw new Error('Authentication failed');
         }
-        router.push('/sign-in')
-        const data = await res.json();
-        console.log(data)
+        else{
+          const data = await res.json();
+          router.push('/sign-in')
+          console.log(data)
+        }
+        
       }
   
     } catch (err) {
@@ -75,6 +79,7 @@ export function SessionProvider(props: React.PropsWithChildren) {
   const signIn = async (loginData: { username: string; password: string }) => {
     try {
       if(account == 'Student'){
+
         const { username, password } = loginData;
         const res = await fetch('http://10.0.2.2:8000/api/auth/student/login/', {
           method: 'POST',
@@ -85,16 +90,19 @@ export function SessionProvider(props: React.PropsWithChildren) {
         });
         if (!res.ok) {
           throw new Error('Authentication failed');
+        } else {
+          const data = await res.json();
+          console.log(data)
+          setUser(JSON.stringify(data.user))
+          // JSON-encode values before storing
+          setSession(JSON.stringify(data.access));
+          if(userData.username == null || userData.username == ''){
+            return router.push('/complete-profile')
+          } else{
+            return router.push('/(tabs)/')
+          }
         }
     
-        const data = await res.json();
-        console.log(data)
-        setUser(JSON.stringify(data.user))
-        // JSON-encode values before storing
-        setSession(JSON.stringify(data.access));
-        if(userData.username == null || userData.username == ''){
-          router.push('/complete-profile')
-        }
       } else if(account == 'Lecturer'){
         const { username, password } = loginData;
         const res = await fetch('http://10.0.2.2:8000/api/auth/teacher/login/', {
@@ -106,18 +114,20 @@ export function SessionProvider(props: React.PropsWithChildren) {
         });
         if (!res.ok) {
           throw new Error('Authentication failed');
+        } else{
+          const data = await res.json();
+          console.log(data)
+          setUser(JSON.stringify(data.user))
+          // JSON-encode values before storing
+          setSession(JSON.stringify(data.access));
+          if(userData.name == null || userData.name == ''){
+             router.push('/complete-profile')
+           }else {
+             router.push('/(tabs)/')
+           }
+
         }
     
-        const data = await res.json();
-        console.log(data)
-        setUser(JSON.stringify(data.user))
-        // JSON-encode values before storing
-        setSession(JSON.stringify(data.access));
-        // if(userData.name == null || userData.name == ''){
-        //   router.push('/complete-profile')
-        // }else {
-        //   router.push('/(tabs)/')
-        // }
       }
   
     } catch (err) {
