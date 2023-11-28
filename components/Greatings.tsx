@@ -10,7 +10,7 @@ const Greatings = () => {
   return (
     <View className='m-2 rounded-lg bg-gray-400 p-4 flex flex-row justify-between items-center'>
       <View className='w-[70%]'>
-        <Text className='text-2xl font-bold'>Hi, {userData.username}</Text>
+        <Text className='text-2xl font-bold'>Hi, {userData.username} {userData.id}</Text>
         <Text>Stay organized and on top of your exams
           with just a click. Best of luck!</Text>
       </View>
