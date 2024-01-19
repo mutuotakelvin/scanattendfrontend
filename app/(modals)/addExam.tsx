@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity, Platform, Alert } from 'react-native';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import {useSession} from './../../ctx'
 import useUserStore from '../../store/UserStore';
+import { Picker } from '@react-native-picker/picker';
+import { router } from 'expo-router';
 
 const AddExam = () => {
   const [examName, setExamName] = useState('');
@@ -44,6 +46,7 @@ const AddExam = () => {
   const handleSubmit = async() => {
     const d = examDate.toISOString().slice(0,10)
     const t = examTime.toISOString().slice(11,19)
+    
    
     const formData = {
       exam_name: examName,
@@ -58,6 +61,7 @@ const AddExam = () => {
       course: course,
     };
     console.log('Form Data:', formData);
+
     try{
       const res = await fetch('http://10.0.2.2:8000/api/exam/',{
         method: 'POST',
@@ -67,11 +71,9 @@ const AddExam = () => {
         body: JSON.stringify(formData),
       })
       const response = await res.json()
-      setAlert({
-        isVisible: true,
-        msg: 'Exam Added Successfully'
-      })
+      Alert.alert('Success', 'Exam created successfully')
       console.log('Returned Data:', res);
+      router.push('/(tabs)/')
     } catch (err) {
       console.log(err)
     }
@@ -94,11 +96,26 @@ const AddExam = () => {
         value={examCode}
       />
       <Text>Course</Text>
-      <TextInput
+      <Picker
+        selectedValue={course}
+        onValueChange={(itemValue, itemIndex) => setCourse(itemValue)}
+      >
+        <Picker.Item label="Select Course" value="" />
+        <Picker.Item label="Computer Science" value="Computer Science" />
+        <Picker.Item label="Applied Mathematics" value="Applied Mathematics" />
+        <Picker.Item label="Applied Physics" value="Applied Physics" />
+        <Picker.Item label="Analytical Chemistry" value="Analytical Chemistry" />
+        <Picker.Item label="Biochemistry" value="Biochemistry" />
+        <Picker.Item label='Industrial Chemistry' value='Industrial Chemistry' />
+        <Picker.Item label='IT' value='IT' />
+        <Picker.Item label='Economics and Statistics' value='Economics and Statistics' />
+        <Picker.Item label='Programming and Statistics' value='Programming and Statistics' />
+      </Picker>
+      {/* <TextInput
         style={styles.input}
         onChangeText={(text) => setCourse(text)}
         value={course}
-      />
+      /> */}
       <Text>Exam Date</Text>
       <TouchableOpacity onPress={showDatepicker}>
         <Text>{examDate.toDateString()}</Text>
@@ -126,11 +143,21 @@ const AddExam = () => {
       )}
 
       <Text>Exam Duration</Text>
-      <TextInput
+      <Picker
+        selectedValue={examDuration}
+        onValueChange={(itemValue, itemIndex) => setExamDuration(itemValue)}
+      >
+        <Picker.Item label="Select Duration" value="" />
+        <Picker.Item label="1 hour" value="1" />
+        <Picker.Item label="2 hours" value="2" />
+        <Picker.Item label="3 hours" value="3" />
+        <Picker.Item label="4 hours" value="4" />
+      </Picker>
+      {/* <TextInput
         style={styles.input}
         onChangeText={(text) => setExamDuration(text)}
         value={examDuration}
-      />
+      /> */}
 
       <Button title="Submit" onPress={handleSubmit} />
     </View>

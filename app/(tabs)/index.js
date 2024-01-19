@@ -13,19 +13,19 @@ const index = () => {
   const router = useRouter()
   const [data, setData] = useState([])
   const [refresh, setRefresh] = useState(false)
-  const {setExams}:any = useExamStore()
+  const {setExams} = useExamStore()
 
-  const {account}:any = useAccountStore()
+  const {account} = useAccountStore()
 
   const handleRefresh = () => {
     console.log('refreshing')
     fetchData()
-    setRefresh(prev => !prev)
+    setRefresh(!refresh)
   }
 
   useEffect(() => {
     fetchData()
-  }, [])
+  }, [refresh])
 
   const fetchData = async () => {
     try{
@@ -39,23 +39,23 @@ const index = () => {
     }
   }
   return (
-    <View>
-      <View className='mt-6 h-[20%]'>
+    <View className='h-full'>
+      <View className='mt-6 my-2 h-[20%]'>
         <Greatings />
-        <View className='flex flex-row justify-between items-center m-1 p-2'>
+        <View className='flex flex-row justify-between items-center m-1 p-2 mb-6'>
           <Text className='text-xl font-medium'>
             Upcoming exams
           </Text>
           {
             account == 'Lecturer' && (
-              <Pressable onPress={() => router.push('/(modals)/addExam')}>
-                <Text>Create exam session</Text>
+              <Pressable className='bg-[#A1AAFF] p-1 m-1 border border-white rounded-lg' onPress={() => router.push('/(modals)/addExam')}>
+                <Text className='text-white'>Create exam</Text>
               </Pressable>
             )
           }
         </View>
       </View>
-      <View className='m-1 h-[72%] mt-6 mb-4'>
+      <View className='m-1 h-[70%] mt-8 mb-4'>
         <ExamList data={data} onRrefresh={handleRefresh}/>
       </View>
     </View>

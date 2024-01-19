@@ -89,7 +89,8 @@ export function SessionProvider(props: React.PropsWithChildren) {
           body: JSON.stringify({ username, password }),
         });
         if (!res.ok) {
-          throw new Error('Authentication failed');
+          router.push('/sign-in')
+          return Alert.alert('Authentication failed. Please try again');
         } else {
           const data = await res.json();
           console.log(data)
@@ -113,7 +114,7 @@ export function SessionProvider(props: React.PropsWithChildren) {
           body: JSON.stringify({ username, password }),
         });
         if (!res.ok) {
-          throw new Error('Authentication failed');
+          return Alert.alert('Authentication failed. Please try again');
         } else{
           const data = await res.json();
           console.log(data)

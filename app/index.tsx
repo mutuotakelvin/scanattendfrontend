@@ -34,7 +34,7 @@ const index = () => {
         <View className='flex items-center'>
           <Animated.View entering={FadeInDown.delay(100).springify()} className='flex flex-row justify-center items-center'>
             <Text style={{fontSize:hp(5)}} className='text-white  font-bold tracking-wide'>Scan</Text>
-            <Text style={{fontSize:hp(5)}} className='text-blue-500 font-bold tracking-wide'>Attend</Text>
+            <Text style={{fontSize:hp(5)}} className='text-[#4E5CFF] font-bold tracking-wide'>Attend</Text>
           </Animated.View>
         <Animated.Text entering={FadeInDown.delay(150).damping(4)} style={{fontSize:hp(2)}} className='text-white text-xl font-medium'>Attendance made easy</Animated.Text>
         </View>
@@ -43,16 +43,16 @@ const index = () => {
             <TouchableOpacity
               onPress={() => handleSingupSelectAccount() }
               style={{height:hp(7),width:wp(20)}}
-              className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
+              className='bg-[#4E5CFF] rounded-full flex justify-center items-center border px-1 w-[26%] border-white mx-auto'
             >
-              <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Signup</Text>
+              <Text style={{fontSize:hp(3)}} className='text-white font-base tracking-widest'>Signup</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => handleLoginSelectAccount() }
               style={{height:hp(7),width:wp(20)}}
-              className='bg-blue-500 rounded-full flex justify-center items-center border-2 border-blue-100 mx-auto'
+              className='bg-[#4E5CFF] rounded-full flex justify-center items-center border px-1 w-[26%] border-white mx-auto'
             >
-              <Text style={{fontSize:hp(3)}} className='text-white font-bold tracking-widest'>Login</Text>
+              <Text style={{fontSize:hp(3)}} className='text-white font-base tracking-widest'>Login</Text>
             </TouchableOpacity>
           </View>
         </Animated.View>

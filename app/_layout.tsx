@@ -70,12 +70,6 @@ function RootLayoutNav() {
            }} 
         />
         <Stack.Screen 
-          name="exam/attend" 
-          options={{ 
-            title: 'Attend Exam',
-           }} 
-        />
-        <Stack.Screen 
           name="sign-up" 
           options={{ 
             title: '',
@@ -101,6 +95,18 @@ function RootLayoutNav() {
             title: '',
             headerShown: false,
            }} 
+        />
+        <Stack.Screen 
+          name="attend/view/[id]" 
+          options={{ 
+            title: 'Atendance',
+           }} 
+        />
+        <Stack.Screen 
+          name="attend/[id]" 
+          options={{ 
+            title: 'Scan',
+           }}
         />
       </Stack>
     </ThemeProvider>

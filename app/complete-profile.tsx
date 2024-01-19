@@ -1,9 +1,10 @@
-import { View, Text, TouchableOpacity,TextInput } from 'react-native'
+import { View, Text, TouchableOpacity,TextInput, Alert } from 'react-native'
 import React, {useState} from 'react'
 import { useRouter } from 'expo-router'
 import { useSession } from '../ctx'
 import useUserStores from '@/../../store/UserStore';
 import useAccountStore from '../store/AccountStore';
+import { Picker } from '@react-native-picker/picker';
 
 
 
@@ -23,8 +24,24 @@ const completeProfile = () => {
   const [course, setCourse] = useState(userData.course)
   const [email, setEmail] = useState(userData.email)
   // const {user} = useSession();
+
+  const isValidEmail = (input: string) => {
+    // You can implement a more sophisticated email validation logic if needed
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input);
+  };
   
   const handleCompleteProfile = () => {
+
+    if (!/^\d+$/.test(number)) {
+      Alert.alert('Validation Error', 'Please enter a valid phone number');
+      return;
+    }
+
+    // Validate email
+    if (!isValidEmail(email)) {
+      Alert.alert('Validation Error', 'Please enter a valid email address');
+      return;
+    }
     if(account == 'Student'){
       const profileData = {
         id:userData.studentId,
@@ -56,49 +73,65 @@ const completeProfile = () => {
     }
   }
   return (
-    <View className='flex flex-col justify-center items-center my-auto'>
-      <Text className='text-xl pb-'>Complete your profile to continue</Text>
+    <View className='flex flex-col justify-center items-center mt-10 bg-[#4E5CFF] h-full'>
+      <Text className='text-xl pb-4 text-white'>Complete your profile to continue</Text>
       <View>
       </View>
       <View className='flex flex-col items-center space-y-4 w-full mt-4'>
         <TextInput 
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          className='border border-white text-white w-[60%] px-1 focus:border-[#A1AAFF] rounded-lg' 
           placeholder="Full Name" 
           value={fullName}
           onChangeText={(text) => setFullName(text)}
           />
-        <TextInput 
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
-          placeholder="School" 
-          value={school}
-          onChangeText={(text) => setSchool(text)}
-          />
+        <Picker
+          selectedValue={school}
+          style={{ height: 25, width: 260, color:'white' }}
+          onValueChange={(itemValue, itemIndex) => setSchool(itemValue)}
+        >
+          <Picker.Item label='Select School' value='' />
+          <Picker.Item label="School of Computing" value="School of Computing" />
+          <Picker.Item label="School of Engineering" value="School of Engineering" />
+          <Picker.Item label="School of Business" value="School of Business" />
+          <Picker.Item label="School of Science" value="School of Science" />
+        </Picker>
+        <Picker
+          selectedValue={department}
+          style={{ height: 25, width: 260, color:'white' }}
+          onValueChange={(itemValue, itemIndex) => setDepartment(itemValue)}
+        >
+          <Picker.Item label='Select Department' value='' />
+          <Picker.Item label="Computer Science" value="Computing and IT" />
+          <Picker.Item label="Software Engineering" value="Software Engineering" />
+          <Picker.Item label="Computer Engineering" value="Computer Engineering" />
+        </Picker>
           <TextInput 
-            className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
-            placeholder="Department" 
-            value={department}
-            onChangeText={(text) => setDepartment(text)}
-            />
-          <TextInput 
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          className='border border-white text-white w-[60%] px-1 focus:border-[#A1AAFF] rounded-lg' 
           placeholder="Phone Number" 
           value={number}
           onChangeText={(text) => setNumber(text)}
           />
         <TextInput 
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          className='border border-white text-white w-[60%] px-1 focus:border-[#A1AAFF] rounded-lg' 
           placeholder="Registration Number" 
           value={regNumber}
           onChangeText={(text) => setRegNumber(text)}
           />
+
+        <Picker
+          selectedValue={course}
+          className='text-white'
+          style={{ height: 25, width: 260, color:'white' }}
+          onValueChange={(itemValue, itemIndex) => setCourse(itemValue)}
+        >
+          <Picker.Item label='Select Course' value='' />
+          <Picker.Item label="Computer Science" value="Computer Science" />
+          <Picker.Item label="Information Technology" value="Information Technology" />
+          <Picker.Item label="Software Engineering" value="Software Engineering" />
+          <Picker.Item label="Computer Engineering" value="Computer Engineering" />
+        </Picker>
         <TextInput
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
-          placeholder="Course" 
-          value={course}
-          onChangeText={(text) => setCourse(text)}
-          />
-        <TextInput
-          className='border border-gray-500 w-[60%] px-1 focus:border-blue-400 rounded-lg' 
+          className='border border-white text-white w-[60%] px-1 focus:border-[#A1AAFF] rounded-lg' 
           placeholder="Email" 
           value={email}
           onChangeText={(text) => setEmail(text)}
@@ -112,9 +145,6 @@ const completeProfile = () => {
               Complete
             </Text>
           </TouchableOpacity>
-          {/* <TouchableOpacity onPressIn={() => router.push('/(tabs)/')} className='bg-black rounded-lg'>
-            <Text className='text-white p-1 px-8 text-lg'>Continue</Text>
-          </TouchableOpacity> */}
         </View>
       </View>
     </View>

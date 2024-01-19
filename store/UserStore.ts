@@ -2,6 +2,7 @@ import {create} from 'zustand'
 
 const useUserStore = create((set) => ({
     user: {},
+    studentDetail: {},
     setUser: (user:any) => set((state:any) =>{
         return{
             user: user
@@ -10,6 +11,11 @@ const useUserStore = create((set) => ({
     clearUser: () => set((state:any) => {
         return{
             user: {}
+        }
+    }),
+    setStudentDetail: (student:any) => set((state:any) =>{
+        return{
+            studentDetail: student
         }
     }),
     updateStudentDetails: async( userData:any) => {

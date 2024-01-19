@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet,Text } from 'react-native';
+import { View, TextInput, Button, StyleSheet,Text, ScrollView } from 'react-native';
 import useUserStores from '../store/UserStore';
 import useAccountStore from '../store/AccountStore';
+import { Picker } from '@react-native-picker/picker';
 
 const ProfileForm = ({ onSubmit, data }:any) => {
   const {user, setUser, clearUser, updateStudentDetails,updateLecturerDetails}:any = useUserStores()
@@ -48,51 +49,84 @@ const ProfileForm = ({ onSubmit, data }:any) => {
   };
 
   return (
-    <View style={styles.container}>
-      <TextInput
-        placeholder="Full Name"
-        value={fullName}
-        onChangeText={(text) => setFullName(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Department"
-        value={department}
-        onChangeText={(text) => setDepartment(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="School"
-        value={school}
-        onChangeText={(text) => setSchool(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Registration Number"
-        value={regNumber}
-        onChangeText={(text) => setRegNumber(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Phone Number"
-        value={number}
-        onChangeText={(text) => setNumber(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Course"
-        value={course}
-        onChangeText={(text) => setCourse(text)}
-        style={styles.input}
-      />
-      <TextInput
-        placeholder="Email"
-        value={email}
-        onChangeText={(text) => setEmail(text)}
-        style={styles.input}
-      />
+    <ScrollView className='py-10'>
+      <View className=' py-1'>
+        <TextInput
+          placeholder="Full Name"
+          value={fullName}
+          onChangeText={(text) => setFullName(text)}
+          style={styles.input}
+        />
+      </View>
+      <View className='mb-4 py-2'>
+        <Picker
+          selectedValue={department}
+          style={{ height: 5, width: 260 }}
+          onValueChange={(itemValue, itemIndex) => setDepartment(itemValue)}
+        >
+          <Picker.Item label='Select Department' value='' />
+          <Picker.Item label="Computing and IT" value="Computing and IT" />
+          <Picker.Item label="Mechanical Engineering" value="Mechanical Engineering" />
+          <Picker.Item label="Civil Engineering" value="Civil Engineering" />
+          <Picker.Item label="Electrical and Telecommunication" value="Electrical and Telecommunication" />
+          <Picker.Item label="Education" value="Education" />
+        </Picker>
+      </View>
+      <View className='mb-4 py-2'>
+        <Picker
+          selectedValue={school}
+          style={{ height: 5, width: 260 }}
+          onValueChange={(itemValue, itemIndex) => setSchool(itemValue)}
+        >
+          <Picker.Item label='Select School' value='' />
+          <Picker.Item label="School of Computing" value="School of Computing" />
+          <Picker.Item label="School of Engineering" value="School of Engineering" />
+          <Picker.Item label="School of Education" value="School of Education" />
+        </Picker>
+      </View>
+      <View className='mb-4 py-2'>
+        <TextInput
+          placeholder="Registration Number"
+          value={regNumber}
+          onChangeText={(text) => setRegNumber(text)}
+          style={styles.input}
+        />
+      </View>
+      <View className='mb-4 py-2'>
+        <TextInput
+          placeholder="Phone Number"
+          value={number}
+          onChangeText={(text) => setNumber(text)}
+          style={styles.input}
+        />
+      </View>
+      <View className='mb-4 py-2'>
+        <Picker
+          selectedValue={course}
+          style={{ height: 5, width: 260 }}
+          onValueChange={(itemValue, itemIndex) => setCourse(itemValue)}
+        >
+          <Picker.Item label='Select Course' value='' />
+          <Picker.Item label="Computer Science" value="Computer Science" />
+          <Picker.Item label="Software Engineering" value="Software Engineering" />
+          <Picker.Item label="Computer Engineering" value="Computer Engineering" />
+          <Picker.Item label="Information Technology" value="Information Technology" />
+          <Picker.Item label="Electrical Engineering" value="Electrical Engineering" />
+          <Picker.Item label="Mechanical Engineering" value="Mechanical Engineering" />
+          <Picker.Item label="Civil Engineering" value="Civil Engineering" />
+          <Picker.Item label="Education" value="Education" />
+        </Picker>
+      </View>
+      <View className='mb-4 py-2'>
+        <TextInput
+          placeholder="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          style={styles.input}
+        />
+      </View>
       <Button title="Update Profile" onPress={handleSubmit} />
-    </View>
+    </ScrollView>
   );
 };
 

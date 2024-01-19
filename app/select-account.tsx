@@ -18,16 +18,16 @@ const selectAccount = () => {
         }
     }
   return (
-    <View className='flex flex-col justify-center items-center my-auto'>
-      <Text className='mb-12 font-medium text-2xl'>{
+    <View className='bg-[#4E5CFF] h-full flex flex-col justify-center items-center my-auto'>
+      <Text className='mb-12 font-medium text-3xl text-white'>{
         login ? 'Login' : 'Sign Up'
       
       } As</Text>
       <View className='flex flex-row items-center gap-6'>
-        <TouchableOpacity className='rounded-lg h-20 w-[20%] bg-black flex flex-row justify-center items-center my-auto' onPress={() => handleSelectAccount("Student")}>
+        <TouchableOpacity className='border border-white rounded-lg h-28 w-[26%] bg-[#A1AAFF] flex flex-row justify-center items-center my-auto' onPress={() => handleSelectAccount("Student")}>
           <Text className='text-white text-lg'>Student</Text>
           </TouchableOpacity>
-          <TouchableOpacity className='rounded-lg h-20 w-[20%] bg-black flex flex-row justify-center items-center my-auto' onPress={() => handleSelectAccount("Lecturer")}>
+          <TouchableOpacity className='border border-white rounded-lg h-28 w-[26%] bg-[#A1AAFF] flex flex-row justify-center items-center my-auto' onPress={() => handleSelectAccount("Lecturer")}>
           <Text className='text-white text-lg'>Lecturer</Text>
           </TouchableOpacity>
       </View>

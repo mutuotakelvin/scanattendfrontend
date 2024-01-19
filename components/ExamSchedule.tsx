@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, StyleSheet } from 'react-native';
 import Timeline from 'react-native-timeline-flatlist';
-import exams from '../constants/exams';// Import your exam data
+// import exams from '../constants/exams'
+import useExamStore from '../store/ExamStore';
 
 const ExamSchedule = () => {
-  const examDataForTimeline = exams.map((exam:any) => ({
+  const {exams}:any = useExamStore()
+  const [examData, setExamData] = useState(exams)
+
+  const fetchData = async () => {
+    try{
+      const res = await fetch('http://10.0.2.2:8000/api/exam/')
+      const data = await res.json()
+
+      setExamData(data.results)
+      console.log('Exam Data',data.results)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  useEffect(() => {
+    fetchData()
+  }
+  ,[])
+
+  const examDataForTimeline = examData.map((exam:any) => ({
     time: `${exam.exam_date} ${exam.exam_time}`,
     title: exam.exam_name,
     description: `Created by ${exam.exam_creator}`,
   }));
+
+
 
   return (
     <View style={styles.container}>
@@ -20,7 +42,7 @@ const ExamSchedule = () => {
         timeContainerStyle={{ minWidth: 52, marginTop: -5 }}
         timeStyle={{
           textAlign: 'center',
-          backgroundColor: '#ff9797',
+          backgroundColor: '#4E5CFF',
           color: 'white',
           padding: 5,
           borderRadius: 13,
