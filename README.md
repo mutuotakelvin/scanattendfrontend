@@ -32,5 +32,11 @@ A mobile application that utilises the QRcode technology for registering student
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Onboarding screen](/assets/images/Screenshot_1701681002.png)
+![Add course by lecturer ](/assets/images/Screenshot_1701682720.png)
+![Select date](/assets/images/Screenshot_1701682733.png)
+![Select time](/assets/images/Screenshot_1701682742.png)
+![Lecturer home page](/assets/images/Screenshot_1701682682.png)
+![Student home page](/assets//images/Screenshot_1701685679.png)
+![Timeline](/assets/images/Screenshot_1701685698.png)
 
